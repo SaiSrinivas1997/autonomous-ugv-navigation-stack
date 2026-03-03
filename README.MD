@@ -21,19 +21,23 @@ The goal was to build a navigation stack **from first principles**, without rely
 
 ```mermaid
 flowchart LR
-    GPS --> EKF
-    IMU --> EKF
-    Encoder --> EKF
-    Magnetometer --> EKF
+    IMU --> SensorBuffers
+    Encoder --> SensorBuffers
+    GPS --> SensorBuffers
+    Magnetometer --> SensorBuffers
+    LIDAR --> SensorBuffers
 
-    EKF --> AutonomousController
-    LIDAR --> RollingGrid
-    RollingGrid --> DStarLite
-    DStarLite --> Waypoints
-    Waypoints --> AutonomousController
+    SensorBuffers --> EKFRunner
+    EKFRunner --> PlanningRunner
+    SensorBuffers --> PlanningRunner
+
+    PlanningRunner --> AutonomousController
+    EKFRunner --> AutonomousController
+    SensorBuffers --> AutonomousController
+
     AutonomousController --> DWA
-    DWA --> SkidSteer
-    SkidSteer --> Simulator
+    DWA --> SkidSteerController
+    SkidSteerController --> PyBullet
 ```
 
 ---
