@@ -1,0 +1,9 @@
+black==26.1.0
+click==8.3.1
+mypy_extensions==1.1.0
+numpy==2.3.5
+packaging==26.0
+pathspec==1.0.4
+platformdirs==4.9.2
+pybullet==3.2.7
+pytokens==0.4.1

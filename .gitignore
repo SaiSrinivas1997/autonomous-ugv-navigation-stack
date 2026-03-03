@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+rover_sim_venv/
+venv/
+.env
+.idea/
+.vscode/
